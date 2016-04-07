@@ -9,7 +9,7 @@ This package contains some utilities for:
 - Making React components embeddable in iframes, with support for iframe resizing
 - Embedding external web sites in React applications with iFrames, with support for automatic iframe resizing
 
-IFrame resizing is based on the [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer) project by David Bradshaw.
+IFrame resizing is based on the [`iframe-resizer`](https://github.com/davidjbradshaw/iframe-resizer) project by David Bradshaw.
 
 ## IFrameEmbed
 
@@ -18,9 +18,14 @@ import { IFrameEmbed } from 'lucify-embed-utils'
 // Use IFrameEmbed as regular React Component
 ```
 
-React component for embedding a web page in an `iframe`. The web page should include the `iframeResizer.contentWindow.min.js` code from https://github.com/davidjbradshaw/iframe-resizer.
+React component for embedding a web page in an `iframe`. The web page to be embedded should include the [`iframeResizer.contentWindow.min.js`](https://github.com/lucified/lucify-embed-utils/tree/master/src/iframeResizer.contentWindow.min.js) for resizing to work.
 
-The only prop is the URL for the page to be embedded. The component will take care of resizing the page.
+The only React prop is `url`, which is the URL for the page to be embedded. The component will initialize `iframe-resizer` to support automatic resizing of the page.
+
+## Notes
+
+The original `iframe-resizer` implementation unfortunately does not work properly when the module is loaded twice. This can happen if `iframe-resizer` is a dependency for multiple submodules of a project. The forked resize
+[implementation](https://github.com/davidjbradshaw/iframe-resizer) in this project makes sure it is loaded only once.
 
 ## TODO
 
