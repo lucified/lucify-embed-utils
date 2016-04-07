@@ -1,7 +1,7 @@
 {
   "name": "lucify-embed-utils",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utilities for embedding React components in iFrames",
   "main": "lib/main.js",
   "scripts": {
